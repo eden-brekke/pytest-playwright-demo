@@ -22,3 +22,7 @@ PROFILE_VERIFY = "//h3[text()='Profile Information']"
 LOGOUT_BUTTON = "//a[@class=' waves-effect' and @href='https://phptravels.net/account/logout']"
 
 
+with sync_playwright() as p:
+  
+  
+
