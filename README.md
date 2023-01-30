@@ -66,18 +66,28 @@ EMAILIDTEXTBOX = "//input[@placeholder='Email']"
 EMAILID = "user@phptravels.com"
 ```
 
-The URL specifies the URL in which we first visit.
+We then use playwright commands such as:
 
-The EMAILIDTEXTBOX variable is targeting the textbox associated with logging in using your email. If you go to the URL and open the console, hit control f and paste the xpath ```(//input[@placeholder='Email'])``` you will see the email text area highlighted.
+```py
+with sync_playwright() as p:
+  browser = p.chromium.launch(headless=False, slow_mo=2*1000)
+  page = browser.new_page()
+  page.goto(URL)
+  page.fill(EMAILIDTEXTBOX, EMAILID)
+```
 
-Once that's been selected, the EMAILID variable is input to that text box.
+Where browers is specifying the browser to launch, and slow_mo is just slowing down the process we can see it.  
+Page is creating a new page instance each time we call it and storing it in memory.  
+
+The URL specifies the URL in which we first visit, so we 'page.goto(URL)'
+
+Then the EMAILIDTEXTBOX variable is targeting the textbox associated with logging in using your email.  
+If you go to the URL and open the console, hit control f and paste the xpath ```(//input[@placeholder='Email'])``` you will see the email text area highlighted.
+
+Once that's been selected, the EMAILID variable is input to that text box. These two variables are the arguments for the fill() method that playwright uses.
 
 There are a bunch of different ways to target html elements with xpaths and a good resource for the syntax is [here](https://devhints.io/xpath)
 
-## Additional Notes on implementing playwright
+### Final notes
 
-Finally, the last step once you've specified all the elements you want to test is actually running the tests.
-
-You do this by importing ```from playwright.sync_api import sync_playwright``` then using the sync_playwright method.
-
-You have to specify your browser, your page, and then the actions in which you want the tests to perform.
+Finally, there are a lot of different ways to write tests in playwright, so definitely go exploring [Playwright for Python Docs](https://playwright.dev/python/)
