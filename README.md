@@ -68,7 +68,7 @@ EMAILID = "user@phptravels.com"
 
 The URL specifies the URL in which we first visit.
 
-The EMAILIDTEXTBOX variable is targeting the textbox associated with logging in using your email. If you go to the URL and open the console, hit control f and paste the xpath ```py(//input[@placeholder='Email'])``` you will see the email text area highlighted.
+The EMAILIDTEXTBOX variable is targeting the textbox associated with logging in using your email. If you go to the URL and open the console, hit control f and paste the xpath ```(//input[@placeholder='Email'])``` you will see the email text area highlighted.
 
 Once that's been selected, the EMAILID variable is input to that text box.
 
@@ -78,6 +78,6 @@ There are a bunch of different ways to target html elements with xpaths and a go
 
 Finally, the last step once you've specified all the elements you want to test is actually running the tests.
 
-You do this by importing ```py from playwright.sync_api import sync_playwright``` then using the sync_playwright method.
+You do this by importing ```from playwright.sync_api import sync_playwright``` then using the sync_playwright method.
 
 You have to specify your browser, your page, and then the actions in which you want the tests to perform.
